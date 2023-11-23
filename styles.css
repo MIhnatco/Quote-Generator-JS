@@ -101,6 +101,30 @@ button:active {
     font-size: 1.5rem;
 }
 
+
+/* Preview */
+.preview-container {
+    position: fixed;
+    top: 30px;
+    left: 10px;
+    width: 80%;
+    max-width: 260px;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.preview-text {
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.preview-text.long-quote {
+    font-size: 0.7rem;
+}
+
 /* Loader */
 .loader {
     border: 16px solid #f3f3f3; /* Light grey */
@@ -116,6 +140,7 @@ button:active {
     100% { transform: rotate(360deg); }
   }
 
+
 /* Media queries */
 
 @media screen and (max-width: 1000px) {
@@ -127,3 +152,5 @@ button:active {
         font-size: 2rem;
     }
 }
+
+/* Media query for screens with a width of 560px or less */

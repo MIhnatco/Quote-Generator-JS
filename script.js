@@ -2,24 +2,50 @@
 const quoteContainer = document.querySelector("#quote-container");
 const quoteText = document.querySelector("#quote");
 const authorText = document.querySelector("#author");
-const twitterBtn = document.querySelector("#twitter")
-const newQuoteBtn = document.querySelector("#new-quote")
+const twitterBtn = document.querySelector("#twitter");
+const newQuoteBtn = document.querySelector("#new-quote");
 
-const loader = document.querySelector('#loader')
+const loader = document.querySelector('#loader');
+
+const previewContainer = document.querySelector('#preview-container');
+const previewText = document.querySelector('#preview')
 
 
 let apiQuotes = [];
 
-//show loading 
+//counter to get quote and preview next quote
+let counter = 0;
+
+//show loader 
 function loading(){
     loader.hidden = false,
     quoteContainer.hidden = true;
 }
 
-//Hide loading
+//Hide loader
 function complete(){
     quoteContainer.hidden = false;
     loader.hidden = true;
+
+}
+
+
+//update the preview window with the next quote
+function updatePreview(counter){
+    const nextQuote = apiQuotes[counter];
+
+    //author check
+    if (!nextQuote.author) {
+        previewText.textContent = `"${nextQuote.text}" - Unknown`;
+    } else {
+        previewText.textContent = `"${nextQuote.text}" - ${nextQuote.author}`;
+    }
+
+    if(nextQuote.text.length > 99){
+        previewText.classList.add('long-quote')
+    } else {
+        previewText.classList.remove('long-quote')
+    }
 
 }
 
@@ -29,7 +55,8 @@ function newQuote(){
     loading();
 
     //a random quote from apiQuotes array
-    const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
+    const quote = apiQuotes[counter];
+    counter += 1;
     
     //check if Author field is blank and replace it with "Unknown"
     if(!quote.author){
@@ -48,6 +75,9 @@ function newQuote(){
         authorText.classList.remove('long-quote')
     
     }
+
+        //preview quote
+    updatePreview(counter);
 
         //quote text, hide loader
     quoteText.textContent = quote.text;
