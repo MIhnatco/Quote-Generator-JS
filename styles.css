@@ -141,6 +141,18 @@ button:active {
   }
 
 
+
+
+
+
+  /* Theme Switcher */
+
+  .theme-switcher {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+  }
+
 /* Media queries */
 
 @media screen and (max-width: 1000px) {
