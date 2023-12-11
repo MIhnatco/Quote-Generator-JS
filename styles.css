@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,600&display=swap');
 
+:root {
+    --primary-background: #ece9f1;
+    --quote-background: rgba(255,255,255,0.8);
+    --button-background: #2196F3;
+
+    --gray-color: #777;
+    --gray-light: #f3f3f3;
+    --white-color: #fff;
+}
+
+
 html {
     box-sizing: border-box;
 }
@@ -7,7 +18,7 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-    background-color: #ece9f1;
+    background-color: var(--primary-background);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='40' viewBox='0 0 50 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23b6afc2' fill-opacity='0.36'%3E%3Cpath d='M40 10L36.67 0h-2.11l3.33 10H20l-2.28 6.84L12.11 0H10l6.67 20H10l-2.28 6.84L2.11 10 5.44 0h-2.1L0 10l6.67 20-3.34 10h2.11l2.28-6.84L10 40h20l2.28-6.84L34.56 40h2.1l-3.33-10H40l2.28-6.84L47.89 40H50l-6.67-20L50 0h-2.1l-5.62 16.84L40 10zm1.23 10l-2.28-6.84L34 28h4.56l2.67-8zm-10.67 8l-2-6h-9.12l2 6h9.12zm-12.84-4.84L12.77 38h15.79l2.67-8H20l-2.28-6.84zM18.77 20H30l2.28 6.84L37.23 12H21.44l-2.67 8zm-7.33 2H16l-4.95 14.84L8.77 30l2.67-8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     color: #000;
     font-family: Poppins, sans-serif;
@@ -27,7 +38,7 @@ body {
     max-width: 900px;
     padding: 1.2rem 2rem;
     border-radius: 10px;
-    background-color: rgba(255,255,255,0.8);
+    background-color: var(--quote-background);
     box-shadow: 0 10px 10px 10px rgba(0,0,0,0.2);
 
 }
@@ -41,15 +52,11 @@ body {
 }
 
 .fa-quote-left, 
-.fa-quote-right {
+.fa-quote-right,
+#author {
     font-size: 3rem;
-    color: #777;
+    color: var(--gray-color);
 
-}
-
-#quote,
-#quote-author {
-    color: #555;
 }
 
 .quote-author {
@@ -73,8 +80,8 @@ button {
     font-size: 1.2rem;
     height: 2.5rem;
     border-radius: 7px;
-    color: #fff;
-    background-color: #2196F3;
+    color: var(--white-color);
+    background-color: var(--button-background);
     border: none;
 
     padding: 0.5rem 1.8rem;
@@ -111,7 +118,7 @@ button:active {
     max-width: 260px;
     padding: 1rem;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: var(--quote-background);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
@@ -127,7 +134,7 @@ button:active {
 
 /* Loader */
 .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
+    border: 16px solid var(--gray-light); /* Light grey */
     border-top: 16px solid #333; 
     border-radius: 50%;
     width: 120px;
@@ -143,16 +150,81 @@ button:active {
 
 
 
-
-
   /* Theme Switcher */
 
   .theme-switcher {
     position: fixed;
     top: 30px;
     right: 30px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+
   }
 
+  .toggle-text {
+    color: var(--gray-color);
+    font-size: 1rem;
+    position: relative;
+    top: -5px;
+    right: 10px
+  }
+
+  .fas {
+    font-size: 1.8rem;
+    margin-right: 10px;
+  }
+
+  .theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+input:checked + .slider {
+    background-color: var(--gray-color);
+}
+
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
+
+.slider {
+    background-color: var(--button-background);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    position: absolute;
+    transition: 0.4s;
+}
+
+.slider::before {
+    background-color: var(--white-color);
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    content: "";
+    width: 26px;
+    height: 26px;
+    transition: 0.4s;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+.slider.round::before {
+    border-radius: 50%;
+}
+
+
+  
 /* Media queries */
 
 @media screen and (max-width: 1000px) {
