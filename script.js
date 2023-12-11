@@ -11,6 +11,21 @@ const previewContainer = document.querySelector('#preview-container');
 const previewText = document.querySelector('#preview')
 
 
+/* switcher */
+const toggleSwitch = document.querySelector('input[type="checkbox"]');
+
+/* Switch theme */
+function switchTheme(event){
+    if(event.target.checked){
+        document.documentElement.setAttribute('data-theme', 'dark')
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light')
+    }
+}
+
+/* Event listener */
+toggleSwitch.addEventListener('change', switchTheme)
+
 let apiQuotes = [];
 
 //counter to get quote and preview next quote

@@ -10,6 +10,10 @@
     --white-color: #fff;
 }
 
+[data-theme='dark'] {
+    --primary-background: #456;
+}
+
 
 html {
     box-sizing: border-box;
