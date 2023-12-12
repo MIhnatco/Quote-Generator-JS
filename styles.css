@@ -3,7 +3,9 @@
 :root {
     --primary-background: #ece9f1;
     --quote-background: rgba(255,255,255,0.8);
+    --button-text: #fff;
     --button-background: #2196F3;
+    --quote-color: #000;
 
     --switcher-background: #a9a9a9;
     --gray-color: #777;
@@ -14,6 +16,13 @@
 [data-theme='dark'] {
     --primary-background: #456;
     --switcher-background: #000000;
+    --quote-color: #fff;
+    --quote-background: rgba(16, 32, 48, .5);
+    --gray-color:#9e9e9e;
+
+    --button-text: #2196f3;
+    --button-background:#fff ;
+   
 }
 
 
@@ -75,6 +84,10 @@ body {
     font-size: 1.2rem;
 }
 
+#quote {
+    color: var(--quote-color);
+}
+
 .fa-quote-left, 
 .fa-quote-right,
 #author {
@@ -104,7 +117,7 @@ button {
     font-size: 1.2rem;
     height: 2.5rem;
     border-radius: 7px;
-    color: var(--white-color);
+    color: var(--button-text);
     background-color: var(--button-background);
     border: none;
 
@@ -145,8 +158,10 @@ button:active {
 }
 
 .preview-text {
+    color: var(--quote-color);
     font-size: 0.8rem;
     line-height: 1.2;
+    letter-spacing: 1px;
 }
 
 .preview-text.long-quote {
@@ -245,6 +260,18 @@ input:checked + .slider::before {
 
   
 /* Media queries */
+
+@media screen and (max-width: 600px){
+    .display {
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    #preview-container {
+        margin-bottom: 2rem;
+    }
+}
 
 @media screen and (max-width: 1000px) {
     .quote-container {
