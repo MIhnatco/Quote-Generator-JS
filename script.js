@@ -11,20 +11,51 @@ const previewContainer = document.querySelector('#preview-container');
 const previewText = document.querySelector('#preview')
 
 
+
+
 /* switcher */
 const toggleSwitch = document.querySelector('input[type="checkbox"]');
+const toggleIcon = document.querySelector('#toggle-icon');
+
+
+/* Dark mode function */
+function darkMode(){
+    toggleIcon.children[0].textContent = "Dark mode";
+    toggleIcon.children[1].classList.remove('fa-sun');
+    toggleIcon.children[1].classList.add('fa-moon');
+}
+
+/* Light mode function */
+function lightMode(){
+    toggleIcon.children[0].textContent = "Light mode";
+    toggleIcon.children[1].classList.add('fa-sun');
+    toggleIcon.children[1].classList.remove('fa-moon');
+}
+
+
+
 
 /* Switch theme */
 function switchTheme(event){
     if(event.target.checked){
         document.documentElement.setAttribute('data-theme', 'dark')
+        darkMode()
     } else {
         document.documentElement.setAttribute('data-theme', 'light')
+        lightMode()
     }
 }
 
+
+
 /* Event listener */
 toggleSwitch.addEventListener('change', switchTheme)
+
+
+
+
+
+
 
 let apiQuotes = [];
 

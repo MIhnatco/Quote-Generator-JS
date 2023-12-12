@@ -5,6 +5,7 @@
     --quote-background: rgba(255,255,255,0.8);
     --button-background: #2196F3;
 
+    --switcher-background: #a9a9a9;
     --gray-color: #777;
     --gray-light: #f3f3f3;
     --white-color: #fff;
@@ -12,6 +13,7 @@
 
 [data-theme='dark'] {
     --primary-background: #456;
+    --switcher-background: #000000;
 }
 
 
@@ -46,6 +48,24 @@ body {
     box-shadow: 0 10px 10px 10px rgba(0,0,0,0.2);
 
 }
+
+
+.display {
+  
+    background-color: rgba(255,255,255,.6);
+    padding: 1rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+
+
 
 .quote-text {
     font-size: 2.75rem;
@@ -115,10 +135,7 @@ button:active {
 
 /* Preview */
 .preview-container {
-    position: fixed;
-    top: 30px;
-    left: 10px;
-    width: 80%;
+ 
     max-width: 260px;
     padding: 1rem;
     border-radius: 8px;
@@ -157,9 +174,7 @@ button:active {
   /* Theme Switcher */
 
   .theme-switcher {
-    position: fixed;
-    top: 30px;
-    right: 30px;
+
     display: flex;
     align-items: center;
     z-index: 100;
@@ -167,7 +182,7 @@ button:active {
   }
 
   .toggle-text {
-    color: var(--gray-color);
+    color: var(--switcher-background);
     font-size: 1rem;
     position: relative;
     top: -5px;
